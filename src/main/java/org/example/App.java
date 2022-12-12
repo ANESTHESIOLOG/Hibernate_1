@@ -20,11 +20,14 @@ public class App
 
         session.beginTransaction();
 
-        Person person = session.get(Person.class, 1);
-        System.out.println(person.getName());
-        System.out.println(person.getAge());
+        Person person = new Person("Some Name", 25);
+        session.save(person);
+
+
 
         session.getTransaction().commit();
+
+        System.out.println(person.getId());
 
         sessionFactory.close();
 
